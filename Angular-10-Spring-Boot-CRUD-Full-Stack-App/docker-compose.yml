@@ -1,0 +1,28 @@
+
+  version: '3.7'
+
+  services:
+    todo-frontend:
+      image: angular-frontend-img:latest
+        #build:
+        #context: {location of angular front end docker file}
+      #dockerfile: Dockerfile
+      ports:
+        - "4200:80"
+      restart: always
+      depends_on: # Start the depends_on first
+        - springboot-backend
+      networks:
+        - fullstack-application-network
+
+    springboot-backend:
+      image: springboot-backend:latest
+      ports:
+        - "80:80"
+      restart: always
+      networks:
+        - fullstack-application-network
+
+  # Networks to be created to facilitate communication between containers
+  networks:
+    fullstack-application-network:
