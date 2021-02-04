@@ -1,4 +1,4 @@
-FROM openjdk:443335314367.dkr.ecr.us-east-1.amazonaws.com/openjdk-8-alpine
+FROM 443335314367.dkr.ecr.us-east-1.amazonaws.com/openjdk-8-alpine
 VOLUME /tmp
 ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
