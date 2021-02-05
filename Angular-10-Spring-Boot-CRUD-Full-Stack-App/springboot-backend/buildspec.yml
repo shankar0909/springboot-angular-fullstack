@@ -27,3 +27,9 @@ phases:
       - echo Writing image definitions file...
       - printf '[{"name":"springboot-backend-latest","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
+artifacts:
+  files:
+   - '**/*'
+  base-directory: codepipeline-us-east-1-766934395246/springboot-ecs-pipel
+  name: build-artefacts
+  discarded-paths: no
