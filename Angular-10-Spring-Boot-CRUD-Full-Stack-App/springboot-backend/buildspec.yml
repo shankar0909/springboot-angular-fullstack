@@ -29,5 +29,4 @@ phases:
       - cat imagedefinitions.json
 artifacts:
   files:
-   - '**/*'
-  name: build-artefacts
+   - imagedefinitions.json
