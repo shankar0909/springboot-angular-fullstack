@@ -30,6 +30,4 @@ phases:
 artifacts:
   files:
    - '**/*'
-  base-directory: codepipeline-us-east-1-766934395246/springboot-ecs-pipel
   name: build-artefacts
-  discarded-paths: no
