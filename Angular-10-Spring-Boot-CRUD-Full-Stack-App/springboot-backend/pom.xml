@@ -82,7 +82,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!--<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>2.5.0</version>
@@ -90,7 +90,8 @@
 					<from>
 						<image>openjdk:8-jdk-alpine</image>
 					</from>
-					<to>
+					 <to>
+						<image>registry.hub.docker.com/shankar0909/springboot-backend-jib</image>
 						<image>443335314367.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-springboot-jib</image>
 						<credHelper>ecr-login</credHelper>
 						<tags>
@@ -101,10 +102,17 @@
 					<container>
 						<appRoot>/usr/local/tomcat/webapps/my-webapp</appRoot>
 						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
-						<!--<mainClass>com.tutorial.springboot.SpringbootBackendApplication</mainClass>-->
+						<mainClass>com.tutorial.springboot.SpringbootBackendApplication</mainClass>
 						<ports>
 							<port>8080</port>
 						</ports>
+						<jvmFlags>
+				      <jvmFlag>-Dmy.property=example.value</jvmFlag>
+				      <jvmFlag>-Xms512m</jvmFlag>
+				      <jvmFlag>-Xdebug</jvmFlag>
+    				</jvmFlags>
+						<format>Docker</format>
+
 					</container>
 				</configuration>
 				<executions>
@@ -116,10 +124,10 @@
 					</execution>
 				</executions>
 			</plugin>
-
+-->
 			<!-- Dockerfile Maven -->
 			<!-- https://github.com/spotify/dockerfile-maven -->
-			<!--<plugin>
+		<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.10</version>
@@ -137,8 +145,7 @@
 					<tag>${project.version}</tag>
 					<skipDockerInfo>true</skipDockerInfo>
 				</configuration>
-			</plugin>-->
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
