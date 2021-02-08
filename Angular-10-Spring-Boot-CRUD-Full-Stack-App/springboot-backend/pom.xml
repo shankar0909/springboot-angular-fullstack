@@ -92,7 +92,7 @@
 					</from>
 					 <to>
 						<image>registry.hub.docker.com/shankar0909/springboot-backend-jib</image>
-						<image>443335314367.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-springboot-jib</image>
+						<image>{AWS_Account_Id}.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-springboot-jib</image>
 						<credHelper>ecr-login</credHelper>
 						<tags>
 							<tag>${project.version}</tag>
