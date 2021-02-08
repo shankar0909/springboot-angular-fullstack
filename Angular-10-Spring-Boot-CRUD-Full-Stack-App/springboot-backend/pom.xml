@@ -91,17 +91,19 @@
 						<image>openjdk:8-jdk-alpine</image>
 					</from>
 					<to>
-						<image>
-							443335314367.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-springboot-jib
-						</image>
+						<image>443335314367.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-springboot-jib</image>
+						<credHelper>ecr-login</credHelper>
+						<tags>
+							<tag>${project.version}</tag>
+							<tag>latest</tag>
+						</tags>
 					</to>
 					<container>
 						<appRoot>/usr/local/tomcat/webapps/my-webapp</appRoot>
 						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+						<!--<mainClass>com.tutorial.springboot.SpringbootBackendApplication</mainClass>-->
 						<ports>
-							<port>
-								8080
-							</port>
+							<port>8080</port>
 						</ports>
 					</container>
 				</configuration>
