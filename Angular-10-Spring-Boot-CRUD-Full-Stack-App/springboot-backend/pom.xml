@@ -115,11 +115,11 @@
     				</jvmFlags>
 						<format>Docker</format>
 					<environment>
-						<RDS_HOSTNAME>{}.cfixz8qfw1zr.us-east-1.rds.amazonaws.com</RDS_HOSTNAME>
+						<RDS_HOSTNAME>mypostgresdb.cfixz8qfw1zr.us-east-1.rds.amazonaws.com</RDS_HOSTNAME>
 						<RDS_PORT>5432</RDS_PORT>
 						<RDS_DB_NAME>employee_db</RDS_DB_NAME>
 						<RDS_USERNAME>postgres</RDS_USERNAME>
-						<RDS_PASSWORD></RDS_PASSWORD>
+						<RDS_PASSWORD>postgres2021</RDS_PASSWORD>
 					</environment>
 					</container>
 				</configuration>
