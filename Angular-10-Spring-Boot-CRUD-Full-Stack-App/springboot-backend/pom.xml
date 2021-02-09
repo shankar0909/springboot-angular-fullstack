@@ -60,7 +60,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<!--The below plugin will unpack the jar created in the target directory to 'dependency' folder in target-->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
@@ -81,8 +81,8 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<!--<plugin>
+			</plugin> -->
+			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>2.5.0</version>
@@ -90,7 +90,7 @@
 					<from>
 						<image>openjdk:8-jdk-alpine</image>
 					</from>
-					 <to>
+					<!-- <to>
 						<image>registry.hub.docker.com/shankar0909/springboot-backend-jib</image>
 						<image>{AWS_Account_Id}.dkr.ecr.us-east-1.amazonaws.com/aws-ecs-springboot-jib</image>
 						<credHelper>ecr-login</credHelper>
@@ -98,21 +98,27 @@
 							<tag>${project.version}</tag>
 							<tag>latest</tag>
 						</tags>
-					</to>
+					</to> -->
 					<container>
 						<appRoot>/usr/local/tomcat/webapps/my-webapp</appRoot>
 						<creationTime>USE_CURRENT_TIMESTAMP</creationTime>
-						<mainClass>com.tutorial.springboot.SpringbootBackendApplication</mainClass>
+						<!--<mainClass>com.tutorial.springboot.SpringbootBackendApplication</mainClass> -->
 						<ports>
 							<port>8080</port>
 						</ports>
-						<jvmFlags>
+						<!--<jvmFlags>
 				      <jvmFlag>-Dmy.property=example.value</jvmFlag>
 				      <jvmFlag>-Xms512m</jvmFlag>
 				      <jvmFlag>-Xdebug</jvmFlag>
     				</jvmFlags>
-						<format>Docker</format>
-
+						<format>Docker</format>-->
+					<environment>
+						<RDS_HOSTNAME>mypostgresdb.cfixz8qfw1zr.us-east-1.rds.amazonaws.com</RDS_HOSTNAME>
+						<RDS_PORT>5432</RDS_PORT>
+						<RDS_DB_NAME>employee_db</RDS_DB_NAME>
+						<RDS_USERNAME>postgres</RDS_USERNAME>
+						<RDS_PASSWORD>postgres2021</RDS_PASSWORD>
+					</environment>
 					</container>
 				</configuration>
 				<executions>
@@ -124,7 +130,7 @@
 					</execution>
 				</executions>
 			</plugin>
--->
+
 			<!-- Dockerfile Maven -->
 			<!-- https://github.com/spotify/dockerfile-maven -->
 		<plugin>
