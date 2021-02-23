@@ -1,0 +1,6 @@
+RDS_HOSTNAME=mypostgresdb.cfixz8qfw1zr.us-east-1.rds.amazonaws.com
+RDS_PORT=5432
+RDS_DB_NAME=employee_db
+RDS_USERNAME=postgres
+RDS_PASSWORD=postgres2021
+CONFIG_LOC=/fnma/ams/config

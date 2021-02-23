@@ -1,0 +1,23 @@
+FROM tomcat:8.0.51-jre8-alpine
+MAINTAINER Shankar Sharma
+
+ENV APP_HOME /usr/ams
+# Base App folder
+RUN mkdir $APP_HOME
+# App Config folder
+RUN mkdir $APP_HOME/config
+# App Log folder
+RUN mkdir $APP_HOME/log
+
+VOLUME $APP_HOME/log
+VOLUME $APP_HOME/config
+
+WORKDIR $APP_HOME
+
+COPY application.yml $APP_HOME/config
+RUN rm -rf /usr/local/tomcat/webapps/*
+ADD target/springboot-backend-latest.war /usr/local/tomcat/webapps/ROOT.war
+#ENV SPRING_PROFILES_ACTIVE=local
+EXPOSE 8080
+#ENTRYPOINT ["catalina.sh", "run"]
+ENTRYPOINT ["sh", "-c", "java -Djava.security.egd=file:/dev/./urandom -jar /usr/local/tomcat/webapps/ROOT.war", "--spring.config.location=file:$APP_HOME/config/application.yml"]
